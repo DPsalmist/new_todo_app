@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Delete Task</title>
+	{% include 'task/style_links.html' %}
+</head>
+<body>
+	<div class="center-column">
+		<h3>Delete Item</h3>
+		<hr>
+		<p>Are you sure you wanna delete <b>{{ item }}</b>?</p>
+		<a class="btn btn-primary" href="{% url 'list' %}">Cancel</a> 
+
+		<form class="todo-item" method="post">
+			{% csrf_token %}
+			<input class="btn btn-danger" type="submit" value="Delete" name="">	
+		</form>
+	</div>
+</body>
+</html>

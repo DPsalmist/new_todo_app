@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Update Task</title>
+	{% include 'task/style_links.html' %}
+</head>
+<body>
+	<div class="center-column">
+		<h3>Update Task</h3>
+		<hr>
+		
+		<form method="post" action="">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<input class="btn btn-info" type="submit" value="Update Task" name="">
+		</form>
+	</div>
+
+</body>
+</html>

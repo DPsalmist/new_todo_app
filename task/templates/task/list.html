@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Todo - My List</title>
+	{% include 'task/style_links.html' %}
+</head>
+<body>
+ <div class="center-column">
+		<h3 style="text-align: center;">TODO APP</h3>
+		<small class="text-muted"><i>A simple app that allows you create a todo-list.</i></small>
+		<hr>
+
+		<form class="todo-item" method="POST" action="/">
+			{% csrf_token %}
+			{{ form.as_table }}
+			<input class="btn btn-info" type="submit" value="Create Task" name="">
+		</form> 
+	
+	
+	<div class="todo-list">
+ 		{% for task in tasks %}
+ 		<div class="item-row">
+ 			<a class="btn btn-outline-primary" href="{% url 'update' task.id %}">Update</a>
+ 			<a class="btn btn-outline-danger" href="{% url 'delete' task.id %}">Delete</a>
+
+ 			{% if task.complete == True %}
+ 				<strike>{{ task }}</strike>
+ 			{% else %}
+ 				<span>{{ task }}</span>
+ 			{% endif %}
+ 		</div>
+ 		{% endfor %}
+ 	</div>
+ </div>
+</body>
+</html>

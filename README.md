@@ -1,3 +1,3 @@
 # todo_app
 
-#A todo app built wit django
+# A todo app built with django
